@@ -4,10 +4,10 @@
  *
  */
 
-const siteRouter = require('./site.routes');
+const exampleRouter = require('./example.routes');
 
 const routes = (app) => {
-  app.use(`/api`, siteRouter);
+  app.use(`/api/examples`, exampleRouter);
 };
 
 module.exports = routes;
