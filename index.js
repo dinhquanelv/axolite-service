@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 const db = require('./src/config/db');
 const routes = require('./src/routes');
@@ -17,12 +18,13 @@ db.connect();
 // apply library
 app.use(
   cors({
-    origin: process.env.BASE_URL || 'http://localhost:3000', // port fe
+    origin: process.env.BASE_URL || 'http://localhost:5173', // port fe
     credentials: true, // allow url call api
   }),
 );
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(cookieParser());
 
 app.head('/ping', (req, res) => {
   res.sendStatus(200);
