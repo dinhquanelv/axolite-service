@@ -7,6 +7,7 @@ const connect = async () => {
     console.log('connect successfully!');
   } catch (error) {
     console.error('connect failure!');
+    console.error(error);
   }
 };
 
